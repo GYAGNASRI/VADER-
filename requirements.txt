@@ -1,0 +1,4 @@
+flask
+vaderSentiment
+nltk
+gunicorn
