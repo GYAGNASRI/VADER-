@@ -1,0 +1,19 @@
+name: Execute Python Code
+
+on:
+  workflow_dispatch: # Allows you to run it manually with a single click
+
+jobs:
+  run-environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Fetch Code from Repo
+        uses: actions/checkout@v4
+
+      - name: 2. Start Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 3. Run Python File and Show Output
+        run: python main.py # <-- CHANGE "main.py" to your exact filename if it is different!
