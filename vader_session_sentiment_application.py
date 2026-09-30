@@ -780,7 +780,8 @@ if __name__ == '__main__':
             
         print("\n✅ All automated validation runs completed successfully! Terminating job run smoothly.")
         sys.exit(0)
-    else:
-        # Standard local runtime: Boot standard interactive local server development interface
-        print("Starting interactive UI app environment at http://127.0.0.1:5000")
-        app.run(host='127.0.0.1', port=5000, debug=True)
+       else:
+        # Dynamic port routing for cloud environments like Render
+        port = int(os.environ.get('PORT', 5000))
+        print(f"Starting interactive UI app environment on port {port}")
+        app.run(host='0.0.0.0', port=port)
